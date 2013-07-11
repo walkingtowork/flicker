@@ -1,0 +1,15 @@
+<h1>Albums#show</h1>
+<%= @album.name %>
+<br>
+<%= @album.description %>
+<br>
+
+<% @album.photos.each do |photo| %>
+  <%= image_tag(photo.image_url) %>
+  <br>
+  <%= link_to photo.name, album_photo_path(@album.id, photo.id) %>
+  <br>
+<% end %>
+
+<%= link_to "Upload a new photo.", new_album_photo_path(@album) %>
+
