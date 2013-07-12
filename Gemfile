@@ -37,6 +37,7 @@ end
 gem "rmagick"
 gem "carrierwave"
 gem "sorcery"
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem "fog", "~> 1.3.1"
 

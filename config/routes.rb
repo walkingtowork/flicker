@@ -1,44 +1,22 @@
 Flicker::Application.routes.draw do
+  #Stripe
+  resources :charges
 
+  #Sorcery Authentication
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
   resources :users
   resources :sessions
-  get "secret" => "home#secret", :as => "secret"
-
+  get "secret" => "home#secret", :as => "secret" #Irrelevant?
 
   # Index
   get "home/index" => "home#index", :as => "home"
 
+  # Albums, Photos
   resources :albums do
     resources :photos
   end
-  # resources :albums
-  # resources :photos
 
   root :to => "home#index"
-
-  # Albums
-  # get "albums/index" => "albums#index", :as => "albums"
-
-  # get "albums/new" => "albums#new", :as => "new_album"
-  # post "albums/create"
-
-  # get "albums/edit/:id" => "albums#edit", :as => "edit_album"
-  # put "albums/update/:id" => "albums#update"
-  # delete "albums/destroy"
-
-  # get "albums/:id" => "albums#show"
-
-  # Photos
-
-  # get "photos/new" => "photos#new", :as => "new_photo"
-  # post "photos/create"
-
-  # get "photos/edit/:id" => "photos#edit", :as => "edit_photo"
-  # put "photos/update/:id" => "photos#update"
-  # delete "photos/destroy"
-
-  # get "photos/:id" => "photos#show", :as => "photos"
 end
